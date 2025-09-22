@@ -30,7 +30,11 @@ public function listAuthors()
 return $this->render("author/list.html.twig",["nbrAuthors"=>$nbr,"firstname"=>$title,"tabAuthors"=>$authors
 ]);
 }
-
+    #[Route('/author/{id}', name: 'show_author')]
+public function showAuthor($id)
+{
+    return $this->render('author/show.html.twig',['id'=>$id]);
+}
 
 }
 
