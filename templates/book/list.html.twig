@@ -1,0 +1,25 @@
+
+<h1> tabbook</h1>
+
+<table border="1">
+   <tr>
+      <td>Ref</td>
+      <td>title</td>
+       <td>description </td>
+       <td>author </td>
+      <td>price</td>
+
+   </tr>
+   {% for x in tabBooks %}
+      <tr>
+      <td>{{ x.ref }}</td>
+      <td>{{ x.title |upper }}</td>
+      <td>{{ x.description }}</td>
+      <td>{{ x.author }}</td>
+
+      <td>{{ x.price }}</td>
+
+
+      </tr>
+   {% endfor %}
+</table>

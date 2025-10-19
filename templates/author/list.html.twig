@@ -19,7 +19,7 @@
       <td>{{ x.id }}</td>
       <td>{{ x.username |upper }}</td>sy
       <td>{{ x.email }}</td>
-      <td>{{ x.nb_books }}</td>
+      <td>{{ x.getNbBooks() }}</td>
       <td><img src="{{x.picture}}" HEIGHT ="40"/></td>
             <td><a href="{{path('show_author',{id:x.id})}}">show </a></td>
 {% set sum = sum + x.nb_books %}

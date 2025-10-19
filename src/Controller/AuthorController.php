@@ -62,7 +62,7 @@ public function add(ManagerRegistry $doctrine)
     $authors= new Author();
     $authors->setUsername("yassine");
     $authors->setEmail("yassine.nefzi@pascal.tn");
-    $authors->setnbbook(2);
+    $authors->setNbBooks(2);
     $em=$doctrine->getManager();
     $em->persist($authors);
     $em->flush();
