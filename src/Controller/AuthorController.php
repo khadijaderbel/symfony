@@ -51,8 +51,9 @@ public function showAuthor($id)
     public function list(AuthorRepository $repository)
     {
         $authors= $repository->findAll();
+        $authorsByEmail= $repository->listAuthorByEmail();
         return $this->render("author/listAuthors.html.twig",
-            ['tabAuthors'=>$authors] );
+            ['tabAuthors'=>$authors,'tabAuthorsByEmail'=>$authorsByEmail]);
     }
 
     //add

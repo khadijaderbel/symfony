@@ -30,3 +30,34 @@
         </tbody>
     </table>
 {% endif %}
+
+{% if tabAuthorsByEmail is empty %}
+    <h2 style="color: red; text-align: center;">No authors found</h2>
+{% else %}
+    <table border="1" cellspacing="0" cellpadding="10" style="margin: auto; border-collapse: collapse; width: 80%; text-align: center;">
+        <thead style="background-color: #f2f2f2;">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Number of Books</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in tabAuthorsByEmail %}
+                <tr>
+                    <td>{{ x.id }}</td>
+                    <td>{{ x.username }}</td>
+                    <td>{{ x.email }}</td>
+                    <td>{{ x.getNbBooks()}}</td>
+                    <td>
+                        <a href="{{ path('removeauthor',{id:x.id}) }}">Delete</a>
+                                <a href="#">Show</a>
+                                <a href="{{ path('update_authors',{id:x.id}) }}">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

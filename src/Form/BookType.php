@@ -24,6 +24,7 @@ class BookType extends AbstractType
             ])*/
             ->add('author')
             ->add('submit',SubmitType::class)
+
         ;
     }
 

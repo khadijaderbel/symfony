@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\MessageGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -34,6 +35,9 @@ $nbr=1500;
 return $this->render("home/calcul.html.twig",
 array("number"=>$nbr));
 }
-
+#[Route('/', name: 'h')]
+    public function homeless(MessageGenerator $messageGenerator):Response
+{  $message = $messageGenerator->getHappyMessage();
+        return new Response ("<h1>Citation du jour : </h1><p>$message</p>");
 }
-
+}

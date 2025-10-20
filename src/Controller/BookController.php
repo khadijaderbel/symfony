@@ -7,10 +7,14 @@ use App\Form\BookType;
 use App\Repository\BookRepository;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+/**
+ * @method createQueryBuilder(string $string)
+ */
 final class BookController extends AbstractController
 {
     #[Route('/book', name: 'app_book')]
@@ -45,6 +49,7 @@ final class BookController extends AbstractController
     public function list(BookRepository $repository)
     {
         $books= $repository->findAll();
+
         return $this->render("book/list.html.twig",
             ['tabBooks'=>$books]);
     }
@@ -77,4 +82,6 @@ final class BookController extends AbstractController
             'books'=>$repository->findBooksByAuthor($id)
         ));
     }*/
+    //search book by ref
+
 }
